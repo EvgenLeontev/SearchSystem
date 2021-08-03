@@ -193,7 +193,7 @@ tuple<vector<string_view>, DocumentStatus> SearchServer::MatchDocument(std::exec
 			}
 		}
 	});
-	for_each(/*std::execution::par,*/ query.minus_words.begin(), query.minus_words.end(), [&](const string_view word){
+	for_each(std::execution::par, query.minus_words.begin(), query.minus_words.end(), [&](const string_view word){
 		if (word_to_document_freqs_.count(string(word)) != 0) {
 			if (word_to_document_freqs_.at(string(word)).count(document_id)) {
 				matched_words.clear();

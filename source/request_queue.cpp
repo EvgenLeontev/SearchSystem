@@ -16,7 +16,6 @@ vector<Document> RequestQueue::AddFindRequest(const string& raw_query, DocumentS
 }
 
 vector<Document> RequestQueue::AddFindRequest(const string& raw_query) {
-	// напишите реализацию
 	vector<Document> found_documents = search_server_.FindTopDocuments(raw_query);
 	requests_.push_back({raw_query, found_documents});
 	if(requests_.size() > sec_in_day_) {

@@ -7,7 +7,7 @@ class RequestQueue {
 public:
 	explicit RequestQueue(const SearchServer& search_server);
 	
-	// сделаем "обёртки" для всех методов поиска, чтобы сохранять результаты для нашей статистики
+	// "обёртки" для всех методов поиска, чтобы сохранять результаты для нашей статистики
 	template <typename DocumentPredicate>
 	std::vector<Document> AddFindRequest(const std::string& raw_query, const DocumentPredicate& document_predicate) {
 		std::vector<Document> found_documents = search_server_.FindTopDocuments(raw_query, document_predicate);

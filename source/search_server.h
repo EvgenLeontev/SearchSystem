@@ -2,6 +2,7 @@
 
 #include "document.h"
 #include "string_processing.h"
+
 #include <string>
 #include <vector>
 #include <set>
